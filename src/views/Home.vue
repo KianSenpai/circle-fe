@@ -8,7 +8,7 @@ let data = ref<IBooks | undefined>(undefined)
 onMounted(async () => (data.value = await getBookList()))
 </script>
 <template>
-    <div class="grid w-full grid-cols-4 gap-4">
+    <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
         <Card v-if="data" v-for="b in data.books" :key="b.id" :book="b" />
     </div>
 </template>

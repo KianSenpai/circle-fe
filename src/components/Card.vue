@@ -5,14 +5,15 @@ defineProps<{ book: IBook }>()
 </script>
 
 <template>
-    <div
-        class="flex cursor-pointer flex-col items-center rounded border p-4 shadow transition-all hover:shadow-lg"
+    <router-link
+        :to="`/book/${book.id}`"
+        class="flex cursor-pointer flex-col rounded-md border p-4 shadow transition-all hover:shadow-md"
     >
-        <span>{{ book.title }}</span>
+        <span class="text font-semibold">{{ book.title }}</span>
         <span>{{ book.author }}</span>
         <span>${{ book.price }}</span>
         <span class="text-xs text-gray-500">ISBN: {{ book.isbn }}</span>
-    </div>
+    </router-link>
 </template>
 
 <style scoped></style>
