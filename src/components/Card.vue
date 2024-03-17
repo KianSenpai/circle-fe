@@ -7,7 +7,7 @@ defineProps<{ book: IBook }>()
 <template>
     <router-link
         :to="`/book/${book.id}`"
-        class="flex cursor-pointer flex-col rounded-md border p-4 shadow transition-all hover:shadow-md"
+        class="flex cursor-pointer flex-col rounded-md border bg-gray-50 p-4 shadow transition-all hover:shadow-md"
     >
         <span class="text font-semibold">{{ book.title }}</span>
         <span>{{ book.author }}</span>
