@@ -26,3 +26,9 @@ export async function getBookDetail(bookId: number) {
         .get<IBookDetail>(`${baseURL}/books/${bookId}`)
         .then((res) => res.data)
 }
+
+export async function postAddBookToCart(bookId: number) {
+    return await axios
+        .post(`${baseURL}/books/${bookId}/purchase`)
+        .then((res) => console.log(res))
+}

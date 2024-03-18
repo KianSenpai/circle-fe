@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { getBookDetail, IBookDetail } from '../utilities/API.ts'
+import {
+    getBookDetail,
+    IBookDetail,
+    postAddBookToCart,
+} from '../utilities/API.ts'
 import Loading from '../components/Loading.vue'
 import CostumeButton from '../components/CostumeButton.vue'
 
@@ -56,7 +60,10 @@ onMounted(async () => {
                             >
                         </div>
                         <div class="flex w-full justify-between">
-                            <costume-button>Add to cart</costume-button>
+                            <costume-button
+                                @click="postAddBookToCart(data.book.id)"
+                                >Add to cart
+                            </costume-button>
                             <div class="flex items-center gap-1">
                                 <span class="text-gray-500"
                                     >Available Stock:</span
