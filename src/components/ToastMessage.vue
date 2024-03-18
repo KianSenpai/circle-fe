@@ -12,5 +12,3 @@ const store = useToast()
         {{ store.message }}
     </div>
 </template>
-
-<style scoped></style>

@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import {
-    getBookDetail,
-    IBookDetail,
-    postAddBookToCart,
-} from '../utilities/API.ts'
+import { getBookDetail, IBookDetail } from '../utilities/API.ts'
 import Loading from '../components/Loading.vue'
 import CostumeButton from '../components/CostumeButton.vue'
 import { useToast } from '../utilities/store.ts'
@@ -80,5 +76,3 @@ const store = useToast()
     </div>
     <loading v-else />
 </template>
-
-<style scoped></style>

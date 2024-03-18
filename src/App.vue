@@ -9,5 +9,3 @@ import ToastMessage from './components/ToastMessage.vue'
         <RouterView />
     </Container>
 </template>
-
-<style scoped></style>
