@@ -12,6 +12,7 @@
     "@rushstack/eslint-patch": "^1.7.2",
     "@vue/eslint-config-typescript": "^13.0.0",
     "axios": "^1.6.7",
+    "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-axios": "^3.5.2",
     "vue-router": "^4.3.0"
