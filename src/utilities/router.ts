@@ -12,6 +12,7 @@ const routes = [
         path: '/book/:id',
         name: 'book detail',
         component: BookDetail,
+        props: true,
     },
 ]
 

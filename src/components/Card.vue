@@ -25,5 +25,3 @@ defineProps<{ book: IBook }>()
         </div>
     </router-link>
 </template>
-
-<style scoped></style>
