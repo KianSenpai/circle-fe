@@ -7,6 +7,7 @@ import {
 } from '../utilities/API.ts'
 import Loading from '../components/Loading.vue'
 import CostumeButton from '../components/CostumeButton.vue'
+import { useToast } from '../utilities/store.ts'
 
 const props = defineProps({
     id: {
@@ -20,6 +21,7 @@ let data = ref<IBookDetail | undefined>(undefined)
 onMounted(async () => {
     data.value = await getBookDetail(props.id)
 })
+const store = useToast()
 </script>
 
 <template>
@@ -61,7 +63,7 @@ onMounted(async () => {
                         </div>
                         <div class="flex w-full justify-between">
                             <costume-button
-                                @click="postAddBookToCart(data.book.id)"
+                                @click="store.updateMessage('hiiiiiii', 'fail')"
                                 >Add to cart
                             </costume-button>
                             <div class="flex items-center gap-1">
