@@ -1,6 +1,6 @@
 <template>
     <div
-        class="flex h-screen w-screen flex-col items-center justify-center gap-1"
+        class="fixed left-0 top-0 flex h-screen w-screen flex-col items-center justify-center gap-1"
     >
         <div class="loader" />
         <span>Circle Challenge</span>
