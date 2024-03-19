@@ -25,18 +25,26 @@ onMounted(async () => {
     bookDetail.value = await getBookDetail(props.id)
 })
 const store = useToast()
-async function handleAddToCart(id: number) {
-    const res = await addToCart(id)
 
-    if (res?.data) {
-        bookDetail.value = {
-            data: res.data,
-            isLoading: false,
-            error: undefined,
+async function handleAddToCart(id: number) {
+    if (
+        bookDetail.value?.data?.book &&
+        bookDetail.value?.data?.book?.availableStock > 0
+    ) {
+        const res = await addToCart(id)
+
+        if (res?.data) {
+            bookDetail.value = {
+                data: res.data,
+                isLoading: false,
+                error: undefined,
+            }
+            store.updateMessage(res.data.message, 'success')
+        } else if (res?.error) {
+            store.updateMessage(res.error, 'fail')
         }
-        store.updateMessage(res.data.message, 'success')
-    } else if (res?.error) {
-        store.updateMessage(res.error, 'fail')
+    } else {
+        store.updateMessage('This book is out of stock T_T', 'fail')
     }
 }
 </script>
@@ -86,14 +94,17 @@ async function handleAddToCart(id: number) {
                                 >${{ bookDetail?.data?.book.price }}</span
                             >
                         </div>
-                        <div class="flex w-full justify-between">
+                        <div class="flex w-full items-center justify-between">
                             <CostumeButton
                                 @click="
                                     handleAddToCart(bookDetail?.data?.book.id)
                                 "
                                 >Add to cart
                             </CostumeButton>
-                            <div class="flex items-center gap-1">
+                            <div
+                                v-if="bookDetail?.data?.book.availableStock > 0"
+                                class="flex items-center gap-1"
+                            >
                                 <span class="text-gray-500"
                                     >Available Stock:</span
                                 >
@@ -101,6 +112,9 @@ async function handleAddToCart(id: number) {
                                     bookDetail?.data?.book.availableStock
                                 }}</span>
                             </div>
+                            <span v-else class="text-red-500"
+                                >Out of stock :(</span
+                            >
                         </div>
                     </div>
                 </div>

@@ -17,9 +17,12 @@ defineProps<{ book: IBook }>()
             </div>
             <div class="flex w-full items-center justify-between">
                 <span>${{ book.price }}</span>
-                <span class="text-xs text-gray-500"
+                <span
+                    v-if="book.availableStock > 0"
+                    class="text-xs text-gray-500"
                     >Available Stock: {{ book.availableStock }}</span
                 >
+                <span v-else class="text-xs text-red-500">Out of stock :(</span>
             </div>
             <!--            <span class="text-xs text-gray-500">ISBN: {{ book.isbn }}</span>-->
         </div>
