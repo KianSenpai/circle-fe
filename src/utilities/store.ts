@@ -13,7 +13,7 @@ export const useToast = defineStore('toastMessage', () => {
             setTimeout(() => {
                 message.value = ''
                 type.value = undefined
-            }, 1000)
+            }, 3000)
         }
     }
     watch(() => message.value, resetMessage)
