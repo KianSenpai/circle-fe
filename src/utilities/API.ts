@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ref } from 'vue'
 
-const baseURL = 'https://relearnto.com/'
+const baseURL = 'https://relearnto.com'
 
 export interface IBook {
     id: number
