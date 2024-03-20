@@ -96,6 +96,9 @@ async function handleAddToCart(id: number) {
                         </div>
                         <div class="flex w-full items-center justify-between">
                             <CostumeButton
+                                :is-disabled="
+                                    bookDetail?.data?.book?.availableStock < 1
+                                "
                                 @click="
                                     handleAddToCart(bookDetail?.data?.book.id)
                                 "
