@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ref } from 'vue'
 
-const baseURL = 'http://localhost:8000'
+const baseURL = 'http://3.68.149.162:8000/'
 
 export interface IBook {
     id: number
